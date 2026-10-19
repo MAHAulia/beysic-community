@@ -8,11 +8,19 @@ window.Pages.membership = function () {
       : ['Tercatat di leaderboard', 'Punya profil & achievement', 'Ikut event resmi komunitas'];
 
     UI.render(
-      '<h1>Membership</h1>' +
-      '<section class="card"><h2>Kenapa Jadi Member?</h2><ul>' +
+      '<section class="cta-banner">' +
+        '<h2>Join Our Membership!</h2>' +
+        '<p>Jadilah bagian dari komunitas Blader — otomatis masuk Leaderboard & punya profil resmi.</p>' +
+      '</section>' +
+      '<section class="card">' +
+        '<div class="section-head"><div><span class="section-eyebrow">Benefits</span>' +
+        '<h2>Kenapa Jadi Member?</h2></div></div>' +
+        '<ul class="benefits">' +
         benefits.map(function (b) { return '<li>' + UI.esc(b) + '</li>'; }).join('') +
-      '</ul></section>' +
-      '<section class="card"><h2>Cara Daftar</h2>' +
+        '</ul></section>' +
+      '<section class="card">' +
+        '<div class="section-head"><div><span class="section-eyebrow">Daftar</span>' +
+        '<h2>Cara Bergabung</h2></div></div>' +
         '<p>' + UI.esc(info.howto || 'Login dengan Google lalu isi formulir di bawah. Pendaftaran akan ditinjau admin.') + '</p>' +
         '<div id="signupArea"></div>' +
       '</section>'

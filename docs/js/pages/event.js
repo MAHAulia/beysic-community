@@ -7,7 +7,9 @@ window.Pages.event = function () {
     var upcoming = events.filter(function (e) { return e.status === 'upcoming'; });
 
     UI.render(
-      '<h1>Event</h1>' +
+      '<div class="section-head"><div><span class="section-eyebrow">Event Schedule</span>' +
+      '<h1 style="margin:0;">Event</h1></div></div>' +
+      '<p class="lead" style="margin:0 0 1rem;color:var(--muted);">Let\'s go shoot together — ikuti turnamen & casual match komunitas.</p>' +
       section('Sedang Berlangsung', ongoing) +
       section('Akan Datang', upcoming) +
       '<div id="eventFormArea"></div>'

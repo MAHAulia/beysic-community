@@ -11,9 +11,11 @@ test.describe('Publik', () => {
     await installApiMock(page);
   });
 
-  test('Home menampilkan about, pengumuman, dan galeri (FR1.1)', async ({ page }) => {
+  test('Home menampilkan hero, about, pengumuman, dan galeri (FR1.1)', async ({ page }) => {
     await page.goto('/#/');
-    await expect(page.locator('.hero h1')).toContainText('Beysic');
+    // Hero bergaya BeyJaxel: tagline juara + brand di header.
+    await expect(page.locator('.hero h1')).toContainText('Champion');
+    await expect(page.locator('.brand-name')).toContainText('Beysic');
     await expect(page.locator('.app-main')).toContainText('Komunitas Beyblade terbesar');
     await expect(page.locator('.app-main')).toContainText('Turnamen Bulanan');
     await expect(page.locator('.photo-grid img')).toHaveCount(1);

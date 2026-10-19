@@ -3,8 +3,15 @@ window.Pages = window.Pages || {};
 window.Pages.leaderboard = function () {
   UI.loading();
   return Api.get('leaderboard.get').then(function (rows) {
+    var header =
+      '<div class="section-head"><div>' +
+      '<span class="section-eyebrow">League Season</span>' +
+      '<h1 style="margin:0;">Leaderboard</h1></div>' +
+      '<span class="season-pill">Season Aktif</span></div>' +
+      '<p class="lead" style="margin:0 0 1rem;color:var(--muted);">Peringkat Blader berdasarkan akumulasi poin musim ini.</p>';
+
     if (!rows.length) {
-      UI.render('<h1>Leaderboard</h1><p class="loading">Belum ada data poin.</p>');
+      UI.render(header + '<p class="loading">Belum ada data poin.</p>');
       return;
     }
     var body = rows.map(function (r) {
@@ -19,9 +26,9 @@ window.Pages.leaderboard = function () {
     }).join('');
 
     UI.render(
-      '<h1>Leaderboard</h1>' +
+      header +
       '<section class="card table-scroll"><table>' +
-      '<thead><tr><th>Rank</th><th>Member</th><th>Poin</th><th>Event</th><th>Podium</th><th>Monarch</th></tr></thead>' +
+      '<thead><tr><th>Rank</th><th>Blader</th><th>Poin</th><th>Event</th><th>Podium</th><th>Monarch</th></tr></thead>' +
       '<tbody>' + body + '</tbody></table></section>' +
       '<p class="loading">Poin dihitung sesuai distribusi resmi (bracket partisipan Up to 30 / 31–59 / 60–Max).</p>'
     );
