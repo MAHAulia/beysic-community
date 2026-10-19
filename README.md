@@ -48,8 +48,19 @@ Mengacu `aidlc/.../construction/infrastructure-design/infrastructure-design.md �
 2. Catat **Spreadsheet ID** (bagian URL di antara `/d/` dan `/edit`).
 
 ### 2. Apps Script
+
+> PENTING soal nama file: editor Apps Script otomatis menambah ekstensi `.gs`
+> ke setiap file skrip. Jadi saat membuat file, isi nama **tanpa ekstensi**
+> (ketik `points`, bukan `points.js`) agar tidak menjadi `points.js.gs`.
+> Manifest `appsscript.json` BUKAN file skrip biasa — jangan dibuat lewat
+> tombol "+", nanti menjadi `appsscript.json.gs` dan error. Lihat langkah 2d.
+
 1. Buat proyek Apps Script terikat ke spreadsheet (Extensions → Apps Script), atau proyek standalone.
-2. Salin isi `apps-script/Code.gs`, **`apps-script/points.js`** (buat file baru di proyek, mis. `points.gs`), dan `apps-script/appsscript.json`. Kedua file skrip berbagi global scope; `points.js` wajib ada agar perhitungan poin bekerja.
+2. Siapkan file skrip:
+   - **a.** File `Code.gs` sudah ada secara default → tempel isi `apps-script/Code.gs`.
+   - **b.** Tambah file baru, beri nama **`points`** (tanpa `.js`) → menjadi `points.gs` → tempel isi `apps-script/points.js`. File ini wajib ada; `Code.gs` dan `points` berbagi global scope sehingga fungsi poin dikenali.
+   - **c.** Jangan buat file untuk `appsscript.json` lewat tombol "+".
+   - **d.** Tampilkan manifest: **Project Settings (⚙️)** → aktifkan **"Show "appsscript.json" manifest file in editor"**. File `appsscript.json` akan muncul di daftar file. Buka dan tempel isi `apps-script/appsscript.json`.
 3. Project Settings → Script Properties, tambahkan:
    - `SPREADSHEET_ID` = id spreadsheet
    - `GOOGLE_CLIENT_ID` = OAuth Web client id (lihat langkah 3)
@@ -59,6 +70,10 @@ Mengacu `aidlc/.../construction/infrastructure-design/infrastructure-design.md �
    - Execute as: **Me**
    - Who has access: **Anyone**
    - Salin URL `/exec`.
+
+> Jika sudah terlanjur membuat `appsscript.json.gs` atau `points.js.gs`: hapus
+> `appsscript.json.gs` (⋮ → Delete) lalu ikuti langkah 2d; untuk `points.js.gs`
+> isinya tetap valid, tetapi sebaiknya rename menjadi `points` agar rapi.
 
 ### 3. Google OAuth Client
 1. Google Cloud Console → Credentials → Create OAuth client ID → **Web application**.
