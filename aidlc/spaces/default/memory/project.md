@@ -23,7 +23,8 @@
 
 ## Testing Posture
 
-<!-- Project-specific specialisation. -->
+- Test Strategy: Standard, fokus pada **end-to-end (e2e)** untuk alur utama: login Google, pendaftaran event, input poin leaderboard oleh admin, pencatatan achievement otomatis. (affirmed 2026-10-19)
+- Logika perhitungan poin leaderboard tetap diverifikasi (kritis & rawan error) sebagai bagian cakupan e2e / verifikasi perhitungan. (affirmed 2026-10-19)
 
 ## Guard Policy
 
@@ -39,7 +40,12 @@
 
 ## Tech Stack
 
-<!-- Technology choices locked for this project. -->
+Dikunci (affirmed 2026-10-19):
+- Front-end: **Vanilla JavaScript** + HTML + CSS (tanpa framework), di-build/di-serve statis.
+- Hosting: **GitHub Pages**.
+- Backend/API: **Google Apps Script Web App** (jembatan ke Sheets + login Google).
+- Datastore: **Google Spreadsheet**.
+- Auth: **Google (OAuth/Identity)** via Apps Script.
 
 ## Decided
 
