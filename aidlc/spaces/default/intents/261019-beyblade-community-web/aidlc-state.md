@@ -36,8 +36,8 @@
 
 ## Execution Plan Summary
 - **Total Stages**: 17
-- **Completed**: 11
-- **In Progress**: functional-design
+- **Completed**: 13
+- **In Progress**: infrastructure-design
 
 ## Runtime State
 - **Revision Count**: 0
@@ -81,10 +81,10 @@
 
 ### CONSTRUCTION PHASE
 Per unit: [TBD]
-- [-] functional-design — EXECUTE
-- [ ] nfr-requirements — EXECUTE
+- [x] functional-design — EXECUTE
+- [x] nfr-requirements — EXECUTE
 - [ ] nfr-design — SKIP
-- [ ] infrastructure-design — EXECUTE
+- [-] infrastructure-design — EXECUTE
 - [ ] code-generation — EXECUTE
 - [ ] build-and-test — EXECUTE
 - [ ] ci-pipeline — EXECUTE
@@ -100,12 +100,12 @@ Per unit: [TBD]
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: functional-design
-- **Next Stage**: nfr-requirements
+- **Current Stage**: infrastructure-design
+- **Next Stage**: code-generation
 - **Status**: Running
-- **Last Updated**: 2026-10-19T03:55:00Z
+- **Last Updated**: 2026-10-19T04:25:00Z
 
 ## Session Resume Point
-- **Last Completed Stage**: domain-design (D1–D5 locked; D2 dynamic)
-- **Next Action**: Draft functional-design (Apps Script API contract + front-end page behavior), then nfr-requirements
-- **Pending Artifacts**: functional-design.md (awaiting review)
+- **Last Completed Stage**: nfr-requirements
+- **Next Action**: Draft infrastructure-design (GitHub Pages + Apps Script + OAuth + sheet layout), then code-generation
+- **Pending Artifacts**: infrastructure-design.md (awaiting review)
