@@ -56,11 +56,15 @@ window.Pages.membership = function () {
     document.getElementById('signupForm').addEventListener('submit', function (ev) {
       ev.preventDefault();
       var data = UI.formData(ev.target);
-      Api.post('membership.signup', data).then(function (res) {
+      var submitBtn = ev.target.querySelector('button[type="submit"]');
+      UI.withButton(submitBtn, function () {
+        return Api.post('membership.signup', data);
+      }).then(function (res) {
         Cache.clear();
         area.innerHTML = '<div class="msg msg-ok">Pendaftaran terkirim (status: ' + UI.esc(res.status) +
           '). Menunggu persetujuan admin.</div>';
-      }).catch(function (err) { UI.toast('Gagal: ' + err.message, 'error'); });
+        UI.alert('Pendaftaran member terkirim. Menunggu persetujuan admin.', 'success');
+      }).catch(function () { /* popup error ditangani withButton */ });
     });
   }
 

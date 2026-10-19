@@ -97,7 +97,7 @@ tabs.results = function () {
 
     function submitResults() {
       var monarchCount = document.querySelectorAll('.r-monarch:checked').length;
-      if (monarchCount > 1) { UI.toast('Monarch hanya boleh satu pemain per event (D3).', 'error'); return; }
+      if (monarchCount > 1) { UI.alert('Monarch hanya boleh satu pemain per event (D3).', 'warning'); return; }
       var rows = Array.prototype.map.call(document.querySelectorAll('#resultsTable tbody tr'), function (tr) {
         return {
           memberId: tr.querySelector('.r-member').value,
@@ -107,18 +107,19 @@ tabs.results = function () {
           attended: tr.querySelector('.r-attended').checked
         };
       });
-      Api.post('admin.results.submit', {
-        eventId: document.getElementById('evSel').value,
-        totalParticipants: Number(document.getElementById('totalP').value),
-        rows: rows
+      var btn = document.getElementById('submitResults');
+      UI.withButton(btn, function () {
+        return Api.post('admin.results.submit', {
+          eventId: document.getElementById('evSel').value,
+          totalParticipants: Number(document.getElementById('totalP').value),
+          rows: rows
+        });
       }).then(function (res) {
         Cache.clear();
         document.getElementById('resultsMsg').innerHTML =
           '<div class="msg msg-ok">Tersimpan ' + res.count + ' hasil. Poin & achievement ter-update.</div>';
-      }).catch(function (err) {
-        document.getElementById('resultsMsg').innerHTML =
-          '<div class="msg msg-error">Gagal: ' + UI.esc(err.message) + '</div>';
-      });
+        UI.alert('Poin tersimpan untuk ' + res.count + ' pemain. Leaderboard & achievement ter-update.', 'success');
+      }).catch(function () { /* popup error ditangani withButton */ });
     }
   }).catch(function (err) { adminContent().innerHTML = '<div class="msg msg-error">' + UI.esc(err.message) + '</div>'; });
 };
@@ -145,10 +146,14 @@ tabs.events = function () {
       topcut_size: data.topcut_size
     };
     if (data.event_id) event.event_id = data.event_id;
-    Api.post('admin.event.save', { event: event }).then(function () {
+    var btn = ev.target.querySelector('button[type="submit"]');
+    UI.withButton(btn, function () {
+      return Api.post('admin.event.save', { event: event });
+    }).then(function () {
       Cache.clear();
       document.getElementById('evMsg').innerHTML = '<div class="msg msg-ok">Event tersimpan.</div>';
-    }).catch(function (err) { document.getElementById('evMsg').innerHTML = '<div class="msg msg-error">' + UI.esc(err.message) + '</div>'; });
+      UI.alert('Event berhasil disimpan.', 'success');
+    }).catch(function () { /* popup error ditangani withButton */ });
   });
 };
 
@@ -173,11 +178,16 @@ tabs.home = function () {
   function bind(id, mapper) {
     document.getElementById(id).addEventListener('submit', function (ev) {
       ev.preventDefault();
-      Api.post('admin.home.update', mapper(UI.formData(ev.target))).then(function () {
+      var form = ev.target;
+      var btn = form.querySelector('button[type="submit"]');
+      UI.withButton(btn, function () {
+        return Api.post('admin.home.update', mapper(UI.formData(form)));
+      }).then(function () {
         Cache.clear();
         document.getElementById('homeMsg').innerHTML = '<div class="msg msg-ok">Tersimpan.</div>';
-        ev.target.reset();
-      }).catch(function (err) { document.getElementById('homeMsg').innerHTML = '<div class="msg msg-error">' + UI.esc(err.message) + '</div>'; });
+        form.reset();
+        UI.alert('Konten berhasil disimpan.', 'success');
+      }).catch(function () { /* popup error ditangani withButton */ });
     });
   }
 };
@@ -196,10 +206,15 @@ tabs.members = function () {
       '<div id="memMsg"></div></section>';
     document.querySelectorAll('[data-set-status]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        Api.post('admin.member.setStatus', {
-          memberId: btn.getAttribute('data-member'), status: btn.getAttribute('data-set-status')
-        }).then(function () { Cache.clear(); tabs.members(); })
-          .catch(function (err) { document.getElementById('memMsg').innerHTML = '<div class="msg msg-error">' + UI.esc(err.message) + '</div>'; });
+        var newStatus = btn.getAttribute('data-set-status');
+        UI.withButton(btn, function () {
+          return Api.post('admin.member.setStatus', {
+            memberId: btn.getAttribute('data-member'), status: newStatus
+          });
+        }).then(function () {
+          Cache.clear();
+          UI.alert('Status member diubah menjadi "' + newStatus + '".', 'success').then(function () { tabs.members(); });
+        }).catch(function () { /* popup error ditangani withButton */ });
       });
     });
   }).catch(function (err) { adminContent().innerHTML = '<div class="msg msg-error">' + UI.esc(err.message) + '</div>'; });

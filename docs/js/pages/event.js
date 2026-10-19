@@ -63,19 +63,22 @@ window.Pages.event = function () {
     document.getElementById('regCancel').addEventListener('click', function () { area.innerHTML = ''; });
     document.getElementById('regForm').addEventListener('submit', function (ev) {
       ev.preventDefault();
-      if (!Auth.isLoggedIn()) { UI.toast('Silakan login terlebih dahulu.', 'error'); return; }
+      if (!Auth.isLoggedIn()) { UI.alert('Silakan login terlebih dahulu.', 'warning'); return; }
       var data = UI.formData(ev.target);
       var user2 = Auth.getUser();
-      Api.post('event.register', {
-        eventId: eventId,
-        memberId: user2 && user2.member ? user2.member.memberId : '',
-        playerName: data.playerName,
-        contact: data.contact
+      var submitBtn = ev.target.querySelector('button[type="submit"]');
+      UI.withButton(submitBtn, function () {
+        return Api.post('event.register', {
+          eventId: eventId,
+          memberId: user2 && user2.member ? user2.member.memberId : '',
+          playerName: data.playerName,
+          contact: data.contact
+        });
       }).then(function () {
         Cache.clear();
         area.innerHTML = '<div class="msg msg-ok">Pendaftaran berhasil!</div>';
-        UI.toast('Pendaftaran berhasil', 'ok');
-      }).catch(function (err) { UI.toast('Gagal: ' + err.message, 'error'); });
+        UI.alert('Pendaftaran event berhasil!', 'success');
+      }).catch(function () { /* popup error sudah ditangani withButton */ });
     });
   }
 

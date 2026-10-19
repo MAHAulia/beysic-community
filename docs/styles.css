@@ -105,6 +105,54 @@ a:hover { text-decoration: underline; }
 .footer-credit a { color: var(--muted); text-decoration: underline; }
 .footer-credit a:hover { color: var(--text); }
 
+/* Popup alert (info/error/warning/success) */
+.alert-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  background: rgba(5, 7, 14, 0.72);
+  backdrop-filter: blur(2px);
+  padding: 1rem;
+  animation: alert-fade 0.18s ease;
+}
+.alert-overlay.alert-closing { opacity: 0; transition: opacity 0.18s ease; }
+@keyframes alert-fade { from { opacity: 0; } to { opacity: 1; } }
+.alert-box {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 1.25rem;
+  max-width: 380px; width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: alert-pop 0.2s ease;
+}
+@keyframes alert-pop { from { transform: translateY(10px) scale(0.98); opacity: 0; } to { transform: none; opacity: 1; } }
+.alert-icon { font-size: 2.4rem; margin-bottom: 0.5rem; }
+.alert-title { font-family: "Oswald", sans-serif; font-size: 1.2rem; font-weight: 700; margin: 0 0 0.3rem; }
+.alert-text { color: var(--muted); margin: 0 0 1.1rem; word-break: break-word; }
+.alert-ok { min-width: 120px; }
+.alert-success { border-top-color: var(--ok); }
+.alert-success .alert-icon { color: var(--ok); }
+.alert-error { border-top-color: var(--danger); }
+.alert-error .alert-icon { color: var(--danger); }
+.alert-warning { border-top-color: var(--accent-2); }
+.alert-warning .alert-icon { color: var(--accent-2); }
+.alert-info { border-top-color: var(--accent); }
+.alert-info .alert-icon { color: var(--accent); }
+
+/* Button loading state */
+.btn.is-loading { opacity: 0.85; cursor: progress; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn:disabled { cursor: not-allowed; }
+.btn-spinner {
+  width: 15px; height: 15px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
 /* Komponen umum */
 .card {
   background: var(--surface);

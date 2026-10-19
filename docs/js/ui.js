@@ -24,19 +24,101 @@ window.UI = (function () {
       '</div><button class="btn btn-secondary" onclick="location.reload()">Coba lagi</button>');
   }
 
-  var toastTimer = null;
-  function toast(msg, type) {
-    var el = document.getElementById('beysic-toast');
-    if (!el) {
-      el = document.createElement('div');
-      el.id = 'beysic-toast';
-      el.style.cssText = 'position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:50;max-width:90%;';
-      document.body.appendChild(el);
+  /**
+   * Popup alert modal. type: 'success' | 'error' | 'warning' | 'info'.
+   * Mengembalikan Promise yang resolve saat ditutup.
+   */
+  var ALERT_META = {
+    success: { icon: 'fa-circle-check', title: 'Berhasil' },
+    error: { icon: 'fa-circle-xmark', title: 'Gagal' },
+    warning: { icon: 'fa-triangle-exclamation', title: 'Perhatian' },
+    info: { icon: 'fa-circle-info', title: 'Info' }
+  };
+
+  function alert(message, type, opts) {
+    type = ALERT_META[type] ? type : 'info';
+    opts = opts || {};
+    var meta = ALERT_META[type];
+
+    // Hapus popup lama bila ada.
+    var existing = document.getElementById('beysic-alert');
+    if (existing) existing.remove();
+
+    var overlay = document.createElement('div');
+    overlay.id = 'beysic-alert';
+    overlay.className = 'alert-overlay';
+    overlay.setAttribute('role', 'alertdialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.innerHTML =
+      '<div class="alert-box alert-' + type + '" role="document">' +
+        '<div class="alert-icon"><i class="fa-solid ' + meta.icon + '"></i></div>' +
+        '<p class="alert-title">' + esc(opts.title || meta.title) + '</p>' +
+        '<p class="alert-text">' + esc(message) + '</p>' +
+        '<button class="btn alert-ok" type="button">' + esc(opts.okLabel || 'OK') + '</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    return new Promise(function (resolve) {
+      function close() {
+        overlay.classList.add('alert-closing');
+        setTimeout(function () { if (overlay.parentNode) overlay.remove(); resolve(); }, 180);
+        document.removeEventListener('keydown', onKey);
+      }
+      function onKey(e) { if (e.key === 'Escape' || e.key === 'Enter') close(); }
+      overlay.querySelector('.alert-ok').addEventListener('click', close);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', onKey);
+      var okBtn = overlay.querySelector('.alert-ok');
+      if (okBtn && okBtn.focus) okBtn.focus();
+    });
+  }
+
+  /**
+   * Set/lepas state loading pada button yang memanggil API.
+   * setLoading(btn, true) -> disable + spinner, simpan label asli.
+   * setLoading(btn, false) -> kembalikan label asli.
+   */
+  function buttonLoading(btn, loading) {
+    if (!btn) return;
+    if (loading) {
+      if (btn.dataset.loading === '1') return;
+      btn.dataset.loading = '1';
+      btn.dataset.originalHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.classList.add('is-loading');
+      btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span><span class="btn-caption">Memproses…</span>';
+    } else {
+      if (btn.dataset.loading !== '1') return;
+      btn.disabled = false;
+      btn.classList.remove('is-loading');
+      if (btn.dataset.originalHtml !== undefined) btn.innerHTML = btn.dataset.originalHtml;
+      delete btn.dataset.loading;
+      delete btn.dataset.originalHtml;
     }
-    el.className = 'msg ' + (type === 'error' ? 'msg-error' : 'msg-ok');
-    el.textContent = msg;
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { el.remove(); }, 4000);
+  }
+
+  /**
+   * Bungkus pemanggilan API dari sebuah button: aktifkan loader, jalankan fn
+   * (harus mengembalikan Promise), lepas loader saat selesai. Menampilkan popup
+   * error otomatis bila gagal (kecuali opts.silentError).
+   */
+  function withButton(btn, fn, opts) {
+    opts = opts || {};
+    buttonLoading(btn, true);
+    return Promise.resolve()
+      .then(fn)
+      .then(function (res) { buttonLoading(btn, false); return res; })
+      .catch(function (err) {
+        buttonLoading(btn, false);
+        if (!opts.silentError) alert((err && err.message) ? err.message : String(err), 'error');
+        throw err;
+      });
+  }
+
+  /** toast lama -> dialihkan ke popup alert agar konsisten. */
+  function toast(msg, type) {
+    var t = type === 'error' ? 'error' : (type === 'warning' ? 'warning' : (type === 'info' ? 'info' : 'success'));
+    alert(msg, t);
   }
 
   /** Serialisasi form menjadi objek. */
@@ -50,5 +132,9 @@ window.UI = (function () {
     return out;
   }
 
-  return { esc: esc, render: render, loading: loading, errorView: errorView, toast: toast, formData: formData, app: app };
+  return {
+    esc: esc, render: render, loading: loading, errorView: errorView,
+    toast: toast, alert: alert, buttonLoading: buttonLoading, withButton: withButton,
+    formData: formData, app: app
+  };
 })();

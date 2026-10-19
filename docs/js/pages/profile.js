@@ -55,11 +55,13 @@ window.Pages.profile = function () {
     document.getElementById('editForm').addEventListener('submit', function (ev) {
       ev.preventDefault();
       var data = UI.formData(ev.target);
-      Api.post('profile.update', data).then(function () {
+      var submitBtn = ev.target.querySelector('button[type="submit"]');
+      UI.withButton(submitBtn, function () {
+        return Api.post('profile.update', data);
+      }).then(function () {
         Cache.clear();
-        UI.toast('Profil tersimpan', 'ok');
-        Router.navigate();
-      }).catch(function (err) { UI.toast('Gagal: ' + err.message, 'error'); });
+        UI.alert('Profil berhasil disimpan.', 'success').then(function () { Router.navigate(); });
+      }).catch(function () { /* popup error ditangani withButton */ });
     });
   }
 

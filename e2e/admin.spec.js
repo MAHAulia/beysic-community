@@ -45,8 +45,8 @@ test.describe('Admin', () => {
     await page.locator('.r-monarch').nth(0).check();
     await page.locator('.r-monarch').nth(1).check();
     await page.locator('#submitResults').click();
-    // toast error muncul, tidak ada pesan sukses
-    await expect(page.locator('#beysic-toast')).toContainText('Monarch');
+    // popup warning muncul, tidak ada pesan sukses
+    await expect(page.locator('#beysic-alert')).toContainText('Monarch');
     await expect(page.locator('#resultsMsg')).not.toContainText('Tersimpan');
   });
 
