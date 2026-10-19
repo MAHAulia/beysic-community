@@ -43,13 +43,13 @@ window.Pages.home = function () {
 
   function featureStrip() {
     var items = [
-      { ico: '🌀', h: 'Weekly Gathering', p: 'Battle rutin tiap pekan bersama komunitas.' },
-      { ico: '🏆', h: 'League Season', p: 'Kumpulkan poin, naik peringkat tiap musim.' },
-      { ico: '🐺', h: 'Wolf of Fame', p: 'Penghargaan untuk Blader terbaik (Monarch).' },
-      { ico: '📅', h: 'Event Schedule', p: 'Turnamen & casual match terjadwal.' }
+      { icon: 'assets/img/features/icon-1.svg', h: 'Weekly Gathering', p: 'Battle rutin tiap pekan bersama komunitas.' },
+      { icon: 'assets/img/features/icon-3.svg', h: 'League Season', p: 'Kumpulkan poin, naik peringkat tiap musim.' },
+      { icon: 'assets/img/features/icon-5.svg', h: 'Wolf of Fame', p: 'Penghargaan untuk Blader terbaik (Monarch).' },
+      { icon: 'assets/img/features/icon-4.svg', h: 'Event Schedule', p: 'Turnamen & casual match terjadwal.' }
     ];
     return '<div class="feature-strip">' + items.map(function (i) {
-      return '<div class="feature"><div class="ico">' + i.ico + '</div>' +
+      return '<div class="feature"><img class="feat-icon" src="' + i.icon + '" alt="" />' +
         '<h3>' + UI.esc(i.h) + '</h3><p>' + UI.esc(i.p) + '</p></div>';
     }).join('') + '</div>';
   }

@@ -25,10 +25,20 @@
     });
   }
 
+  function hideLoader() {
+    var loader = document.getElementById('loader');
+    if (!loader) return;
+    loader.classList.add('loader--hidden');
+    setTimeout(function () { if (loader.parentNode) loader.parentNode.removeChild(loader); }, 600);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initNavToggle();
     Auth.onChange(applyRoleVisibility);
     Auth.init(document.getElementById('authArea'));
     Router.start();
+    // Sembunyikan loader setelah render pertama.
+    setTimeout(hideLoader, 400);
+    window.addEventListener('load', hideLoader);
   });
 })();
