@@ -45,16 +45,16 @@ Diwarisi dari keputusan Ideation (GitHub Pages statis + Apps Script + Sheets):
 3. ALWAYS cache data read di sisi klien untuk menghemat kuota Apps Script/Sheets.
 4. ALWAYS simpan foto sebagai URL (Drive) di spreadsheet, bukan biner di repo.
 
-## 6. Affirmation Gate
+## 6. Affirmation Gate — AFFIRMED 2026-10-19
 
-Setujui atau sesuaikan item berikut sebelum lanjut (akan ditulis ke `project.md`):
+Disetujui pengguna dan ditulis ke `project.md`:
 
-- [ ] Tech stack dikunci (sebutkan pilihan front-end).
-- [ ] Testing posture disetujui.
-- [ ] Aturan FORBIDDEN disetujui (atau sebutkan perubahan).
-- [ ] Aturan MANDATED disetujui (atau sebutkan perubahan).
+- [x] Tech stack dikunci → front-end **Vanilla JS** (tanpa framework), + GitHub Pages + Apps Script + Spreadsheet.
+- [x] Testing posture disetujui → fokus **end-to-end (e2e)** untuk alur utama.
+- [x] Aturan FORBIDDEN disetujui (4 aturan).
+- [x] Aturan MANDATED disetujui (4 aturan).
 
-[Keputusan Anda]:
+[Keputusan Anda]: APPROVED — vanilla JS, test e2e, dan seluruh aturan Forbidden/Mandated disetujui.
 
 ## Traceability
 - Tech stack & auth → `scope-definition.md`, `feasibility-assessment.md`, [Q9].

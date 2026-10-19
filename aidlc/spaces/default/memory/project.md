@@ -51,6 +51,9 @@ Dikunci (affirmed 2026-10-19):
 
 <!-- Decisions made in earlier stages that should not be re-asked. -->
 <!-- Format: DECIDED: [decision] (Stage [slug], [date]) -->
+- DECIDED: Front-end memakai vanilla JS (tanpa framework) (Stage practices-discovery, 2026-10-19)
+- DECIDED: Testing fokus end-to-end (e2e) untuk alur utama (Stage practices-discovery, 2026-10-19)
+- DECIDED: GitHub Pages + Apps Script + Google Spreadsheet sebagai arsitektur dasar (Stage practices-discovery, 2026-10-19)
 
 ## Scope Overrides
 
@@ -60,13 +63,19 @@ Dikunci (affirmed 2026-10-19):
 
 <!-- Populated by practices-discovery affirmation gate. -->
 <!-- Format: NEVER [behavior] (affirmed [date]) -->
-<!-- Example: NEVER throw exceptions across service layer boundaries (affirmed 2026-05-17) -->
+- NEVER mempercayai input/klaim front-end untuk otorisasi — validasi admin & kepemilikan data wajib di Apps Script (affirmed 2026-10-19)
+- NEVER menyimpan secret/kredensial (OAuth client secret, token) di repo publik atau kode front-end (affirmed 2026-10-19)
+- NEVER menulis ke Spreadsheet dari banyak jalur — Apps Script adalah penulis tunggal (affirmed 2026-10-19)
+- NEVER menampilkan email/data pribadi member ke publik tanpa izin (affirmed 2026-10-19)
 
 ## Mandated
 
 <!-- Populated by practices-discovery affirmation gate. -->
 <!-- Format: ALWAYS [behavior] (affirmed [date]) -->
-<!-- Example: ALWAYS use Result<T,E> for fallible operations in service layer (affirmed 2026-05-17) -->
+- ALWAYS validasi whitelist email admin di server-side (Apps Script) sebelum operasi admin (affirmed 2026-10-19)
+- ALWAYS buat operasi tulis poin & achievement idempoten (hindari double-count saat retry) (affirmed 2026-10-19)
+- ALWAYS cache data read di sisi klien untuk menghemat kuota Apps Script/Sheets (affirmed 2026-10-19)
+- ALWAYS simpan foto sebagai URL (Drive) di spreadsheet, bukan biner di repo (affirmed 2026-10-19)
 
 ## Corrections
 

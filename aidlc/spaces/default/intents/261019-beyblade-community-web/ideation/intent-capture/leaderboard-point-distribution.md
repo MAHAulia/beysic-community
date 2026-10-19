@@ -20,7 +20,7 @@ Kolom = rentang **Total Participant**. Baris = kategori poin.
 | Podium 8 | 0 | 0 | 0 | 1 | 1.5 | 2 | 3 |
 | Attendance | 0.25 | 0.35 | 0.45 | 0.55 | 0.65 | 0.75 | 1 |
 | Progress to topcut | 0.5* | 0.65* | 0.75* | 1* | 1.25* | 1.5* | 2 |
-| Alphawolf | 1 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 2.5 |
+| Monarch | 1 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 2.5 |
 
 \* **Progress to topcut** TIDAK dihitung jika pemain sudah mencapai Podium 1–4.
 
