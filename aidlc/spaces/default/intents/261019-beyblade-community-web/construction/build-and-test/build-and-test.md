@@ -21,8 +21,16 @@
   - Skenario gabungan (juara 1 bracket C hadir+monarch; rank 6 bracket B hadir+topcut).
   - Fleksibilitas truthy (boolean/string/number) & pembulatan 2 desimal.
 
-## 3. E2E Manual (pasca-deploy) — checklist
-Lihat `e2e-manual-checklist.md`. Mencakup alur yang butuh Google (login, tulis Sheets) dan verifikasi NFR terukur (otorisasi admin server-side, idempotensi, cache TTL, responsif).
+## 3. E2E Otomatis (Playwright, mode mock) — dijalankan, PASS
+- Perkakas: Playwright `1.52.0` (dipin karena mesin dev macOS 12). File di `e2e/`.
+- Mode mock: server statis lokal (`tools/serve.js`) menyajikan `docs/`; panggilan Apps Script di-rute ke mock (`e2e/fixtures/mockApi.js`); config.js & GIS di-stub (`e2e/fixtures/setup.js`); sesi member/admin disuntik ke sessionStorage (bypass login Google).
+- Proyek: `desktop-chromium` + `mobile` (Pixel 5) → uji responsif N7.1.
+- **Hasil: 28/28 PASS** (14 spec × 2 proyek), 0 gagal.
+- Cakupan: alur publik (home/event/leaderboard tanpa email/membership), member (login header, daftar event, profil, edit, guard), admin (panel, deteksi bracket D1, validasi Monarch tunggal D3, submit hasil FR9.1, approval member D5).
+- Catatan: 2 kegagalan awal pada proyek mobile (assertion `toBeVisible` pada link nav di dalam hamburger yang collapse) diperbaiki menjadi cek kelas role-visibility — bug test, bukan bug app.
+
+## 4. E2E Manual (pasca-deploy) — checklist
+Lihat `e2e-manual-checklist.md`. Mencakup alur yang HANYA bisa diuji terhadap Google nyata: login Google (tak dapat diotomasi andal), otorisasi admin server-side (NFR1 — tidak teruji di mode mock), tulis Sheets, idempotensi end-to-end.
 
 ## 4. Keterbatasan yang Jujur
 - E2E penuh (login Google + tulis spreadsheet + verifikasi otorisasi server-side) TIDAK dapat dijalankan di environment ini karena butuh kredensial Google & deployment nyata. Diverifikasi manual oleh pemilik setelah setup (README §Setup).
@@ -30,4 +38,5 @@ Lihat `e2e-manual-checklist.md`. Mencakup alur yang butuh Google (login, tulis S
 
 ## 5. Traceability
 - Unit test → FR3.2, domain-design §4, leaderboard-point-distribution.md.
-- E2E manual → FR2.2, FR4.2, FR5.2, FR6.2, FR9.2, FR10, NFR1/N3/N5/N7.
+- E2E otomatis (mock) → FR1.1, FR2.1, FR2.2, FR3.1, FR4.1, FR6.1/6.2, FR9.1, D1, D3, D5, N7.1, NFR6.
+- E2E manual (nyata) → FR5.1/5.2, FR9.2, FR10.2, NFR1 (otorisasi server-side), N3.1, N5.

@@ -5,6 +5,13 @@
   "description": "Website Komunitas Beyblade — front-end statis + Apps Script.",
   "scripts": {
     "test": "node --test",
-    "test:points": "node --test test/points.test.js"
+    "test:points": "node --test test/points.test.js",
+    "serve": "node tools/serve.js",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "e2e:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
   }
 }

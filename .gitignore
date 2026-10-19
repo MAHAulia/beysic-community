@@ -32,3 +32,9 @@ node_modules/
 *.log
 docs/config.local.js
 .clasp.json
+
+# Playwright e2e artifacts
+playwright-report/
+test-results/
+blob-report/
+.cache/

@@ -102,8 +102,32 @@ npm test
 
 Memverifikasi `computePoints`/`bracketOf` cocok persis dengan tabel distribusi referensi (FR3.2): bracket, aturan bintang Progress-to-topcut (dibatalkan untuk rank 1–4), Monarch, dan pembulatan.
 
+### E2E otomatis (Playwright, mode mock)
+E2e deterministik tanpa Google: server statis lokal menyajikan `docs/`, panggilan Apps Script di-mock, dan sesi member/admin disuntik untuk menguji guard & alur UI. Mencakup desktop + mobile (uji responsif).
+
+```
+npm install
+npm run e2e:install   # unduh browser Chromium (sekali)
+npm run test:e2e      # jalankan semua spec (desktop + mobile)
+npm run test:e2e:ui   # mode UI interaktif
+```
+
+Spec di `e2e/`:
+- `public.spec.js` — home, event, leaderboard (tanpa email), membership
+- `member.spec.js` — login header, daftar event, profil, edit profil, guard
+- `admin.spec.js` — panel admin, deteksi bracket, validasi Monarch tunggal, submit hasil, approval member
+
+Catatan versi: Playwright dipin ke `1.52.0` karena mesin dev memakai macOS 12 (versi lebih baru menghapus build browser untuk macOS 12). Di CI (Ubuntu) versi apa pun jalan.
+
+### E2E menguji deployment NYATA (opsional)
+Arahkan ke URL GitHub Pages hasil deploy untuk menguji front-end nyata (alur publik; login Google tetap manual):
+
+```
+E2E_BASE_URL="https://<user>.github.io/<repo>" npm run test:e2e -- public.spec.js
+```
+
 ### E2E manual (perlu deployment Google)
-Alur yang bergantung Google (login, tulis Sheets) diuji manual setelah deploy. Checklist di `aidlc/.../construction/build-and-test/e2e-manual-checklist.md`.
+Alur yang bergantung Google secara penuh (login Google nyata, tulis Sheets, otorisasi admin server-side) diuji manual setelah deploy — login OAuth tidak dapat diotomasi dengan andal. Checklist di `aidlc/.../construction/build-and-test/e2e-manual-checklist.md`.
 
 ## Catatan Poin Leaderboard
 
