@@ -38,7 +38,7 @@ Komunitas sedang bertumbuh dan akan ada rangkaian event/tournament yang membutuh
 
 ## Referensi Distribusi Poin Leaderboard
 
-Aturan poin leaderboard mengacu pada papan resmi "BEYJAXEL LEADERBOARD POINTS DISTRIBUTION". Detail tabel, kategori poin (Podium 1–8, Attendance, Progress to topcut, Monarch), serta aturan remap bracket partisipan untuk implementasi direkam di dokumen terpisah:
+Aturan poin leaderboard mengacu pada papan distribusi poin BeySic (label papan asli pada foto referensi bertuliskan "BEYJAXEL", di-rebrand menjadi BeySic). Detail tabel, kategori poin (Podium 1–8, Attendance, Progress to topcut, Monarch), serta aturan remap bracket partisipan untuk implementasi direkam di dokumen terpisah:
 
 #[[file:leaderboard-point-distribution.md]]
 

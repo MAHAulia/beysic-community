@@ -1,4 +1,4 @@
-/** Halaman Home — FR1.1. Gaya terinspirasi komunitas BeyJaxel. */
+/** Halaman Home — FR1.1. Gaya komunitas BeySic. */
 window.Pages = window.Pages || {};
 window.Pages.home = function () {
   UI.loading();

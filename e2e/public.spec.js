@@ -13,7 +13,7 @@ test.describe('Publik', () => {
 
   test('Home menampilkan hero, about, pengumuman, dan galeri (FR1.1)', async ({ page }) => {
     await page.goto('/#/');
-    // Hero bergaya BeyJaxel: tagline juara + brand di header.
+    // Hero bergaya BeySic: tagline juara + brand di header.
     await expect(page.locator('.hero h1')).toContainText('Champion');
     await expect(page.locator('.brand-name')).toContainText('Beysic');
     await expect(page.locator('.app-main')).toContainText('Komunitas Beyblade terbesar');

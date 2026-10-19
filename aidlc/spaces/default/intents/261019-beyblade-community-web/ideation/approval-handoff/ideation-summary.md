@@ -23,7 +23,7 @@ Website komunitas Beyblade (statis, GitHub Pages) sebagai pusat informasi komuni
 - **Target**: publik umum + member + admin/pengurus. [Q2]
 - **Pendekatan teknis**: GitHub Pages statis + Google Apps Script Web App + Google Spreadsheet. [Q9]
 - **Admin**: whitelist email di spreadsheet, divalidasi server-side. [Q10]
-- **Poin leaderboard**: mengikuti papan BEYJAXEL; remap bracket partisipan mulai "Up to 30" dengan nilai bagian 60–90 referensi.
+- **Poin leaderboard**: mengikuti papan distribusi poin BeySic (asal label foto "BEYJAXEL"); remap bracket partisipan mulai "Up to 30" dengan nilai bagian 60–90 referensi.
 - **Rilis pertama**: 10 fitur inti REQUIREMENT.MD masuk; 4 item ditunda (pembayaran online, mobile native, notifikasi email/WA, chat/forum). [Q8]
 
 ## 4. Risiko Utama yang Dibawa ke Inception

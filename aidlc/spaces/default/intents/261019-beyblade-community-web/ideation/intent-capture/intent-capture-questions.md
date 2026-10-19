@@ -147,4 +147,4 @@ Opsi:
 
 ## Follow-up — Referensi Poin Leaderboard (ditambahkan pengguna)
 
-Pengguna menambahkan referensi papan "BEYJAXEL LEADERBOARD POINTS DISTRIBUTION" (gambar) dan mengkonfirmasi aturan remap bracket partisipan: distribusi penuh referensi (mulai kolom 60–69) dipakai untuk turnamen kecil mulai "Up to 30", memakai nilai poin bagian 60–90. Direkam di `leaderboard-point-distribution.md`.
+Pengguna menambahkan referensi papan distribusi poin (gambar; label asli "BEYJAXEL", di-rebrand menjadi BeySic) dan mengkonfirmasi aturan remap bracket partisipan: distribusi penuh referensi (mulai kolom 60–69) dipakai untuk turnamen kecil mulai "Up to 30", memakai nilai poin bagian 60–90. Direkam di `leaderboard-point-distribution.md`.

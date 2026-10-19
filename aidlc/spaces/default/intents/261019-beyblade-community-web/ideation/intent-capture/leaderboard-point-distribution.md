@@ -1,7 +1,7 @@
-# Referensi Distribusi Poin Leaderboard — BEYJAXEL
+# Referensi Distribusi Poin Leaderboard — BeySic
 
 > Fase: Ideation · Stage: Intent Capture & Framing
-> Sumber: `leaderboard-point-reference.png` (foto papan "BEYJAXEL LEADERBOARD POINTS DISTRIBUTION").
+> Sumber: `leaderboard-point-reference.png` (foto papan distribusi poin; label papan asli pada foto bertuliskan "BEYJAXEL", diadopsi sebagai acuan dan di-rebrand menjadi BeySic per keputusan pengguna 2026-10-19).
 > Dokumen ini merekam aturan poin leaderboard sebagai acuan untuk stage requirements-analysis / domain-design / functional-design.
 
 ## 1. Tabel Referensi Asli (persis seperti gambar)
