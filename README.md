@@ -147,3 +147,17 @@ Alur yang bergantung Google secara penuh (login Google nyata, tulis Sheets, otor
 ## Catatan Poin Leaderboard
 
 Bracket partisipan: **Up to 30 / 31–59 / 60–Max**, memakai nilai dari bagian 60–90 referensi resmi. Kategori: Podium 1–8, Attendance, Progress to topcut (dibatalkan bila rank 1–4), dan **Monarch** (satu pemain per event). Detail tabel di `aidlc/.../leaderboard-point-distribution.md`.
+
+## Kredit & Atribusi
+
+Tampilan memakai aset dari template **Axio** (coming soon template) oleh
+**mix_design**, didistribusikan oleh **ThemeWagon**:
+
+- Template: https://themewagon.com/themes/axio/
+- Lisensi: ThemeWagon Free Theme License — https://themewagon.com/license/
+
+Atribusi dipertahankan di footer situs. Detail aset yang dipakai dan ringkasan
+ketentuan lisensi ada di [`CREDITS.md`](CREDITS.md).
+
+Catatan: aset gambar/ikon template bersifat sementara untuk prototipe; untuk
+rilis publik sebaiknya diganti aset milik komunitas sendiri.
