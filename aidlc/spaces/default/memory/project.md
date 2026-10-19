@@ -54,6 +54,11 @@ Dikunci (affirmed 2026-10-19):
 - DECIDED: Front-end memakai vanilla JS (tanpa framework) (Stage practices-discovery, 2026-10-19)
 - DECIDED: Testing fokus end-to-end (e2e) untuk alur utama (Stage practices-discovery, 2026-10-19)
 - DECIDED: GitHub Pages + Apps Script + Google Spreadsheet sebagai arsitektur dasar (Stage practices-discovery, 2026-10-19)
+- DECIDED: Bracket partisipan leaderboard = Up to 30 / 31–59 / 60–Max, nilai poin dari bagian 60–90 referensi (Stage domain-design, 2026-10-19)
+- DECIDED: topcut_size dinamis per event, diisi admin, tanpa default tetap (Stage domain-design, 2026-10-19)
+- DECIDED: Monarch tepat satu pemain per event (Stage domain-design, 2026-10-19)
+- DECIDED: Poin leaderboard = jumlah total seluruh EventResult member (Stage domain-design, 2026-10-19)
+- DECIDED: Signup member baru perlu approval admin (pending → active) (Stage domain-design, 2026-10-19)
 
 ## Scope Overrides
 

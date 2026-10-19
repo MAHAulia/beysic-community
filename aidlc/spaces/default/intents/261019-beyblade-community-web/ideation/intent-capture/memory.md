@@ -30,4 +30,4 @@
 
 ## Open questions
 - 2026-10-19 — Detail skema spreadsheet dan mekanisme OAuth akan diputuskan di stage desain (feasibility/domain-design/infrastructure-design), bukan di sini.
-- 2026-10-19 — Batas atas pasti tiap bracket partisipan leaderboard baru, definisi topcut, dan jumlah penerima Alphawolf per event — dirinci di requirements-analysis/domain-design.
+- 2026-10-19 — Batas atas pasti tiap bracket partisipan leaderboard baru, definisi topcut, dan jumlah penerima Monarch (sebelumnya "Alphawolf", diganti per keputusan pengguna) per event — dirinci di requirements-analysis/domain-design.

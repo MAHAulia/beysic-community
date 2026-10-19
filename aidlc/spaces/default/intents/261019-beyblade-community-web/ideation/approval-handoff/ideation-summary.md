@@ -34,7 +34,7 @@ Website komunitas Beyblade (statis, GitHub Pages) sebagai pusat informasi komuni
 
 ## 5. Open Questions untuk Inception
 
-- Batas atas pasti tiap bracket partisipan leaderboard; definisi topcut; jumlah penerima Alphawolf per event.
+- Batas atas pasti tiap bracket partisipan leaderboard; definisi topcut; jumlah penerima Monarch per event.
 - Skema spreadsheet detail (domain-design).
 - Konfigurasi OAuth/Identity untuk situs statis (infrastructure-design).
 

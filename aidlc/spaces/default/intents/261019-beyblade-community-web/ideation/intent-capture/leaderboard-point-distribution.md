@@ -28,7 +28,7 @@ Kolom = rentang **Total Participant**. Baris = kategori poin.
 - **Podium 1–8**: poin sesuai peringkat akhir pemain di event (1 = juara).
 - **Attendance**: poin kehadiran untuk setiap peserta yang ikut.
 - **Progress to topcut**: bonus karena lolos ke babak topcut; dibatalkan bila pemain finis Podium 1–4.
-- **Alphawolf**: bonus khusus (penghargaan Alphawolf) pada event tersebut.
+- **Monarch**: bonus khusus (penghargaan Monarch) pada event tersebut. (Pada gambar referensi asli kategori ini berlabel "Alphawolf"; diganti menjadi "Monarch" per keputusan pengguna 2026-10-19.)
 
 ## 2. Aturan Implementasi (remap bracket partisipan) — DIKONFIRMASI PENGGUNA
 
@@ -53,7 +53,7 @@ Bracket partisipan baru dimulai dari "Up to 30". Nilai poin diambil dari kolom `
 | Podium 8 | 1 | 1.5 | 2 |
 | Attendance | 0.55 | 0.65 | 0.75 |
 | Progress to topcut | 1* | 1.25* | 1.5* |
-| Alphawolf | 1.3 | 1.4 | 1.5 |
+| Monarch | 1.3 | 1.4 | 1.5 |
 
 \* **Progress to topcut** TIDAK dihitung jika pemain sudah mencapai Podium 1–4.
 
@@ -61,6 +61,6 @@ Bracket partisipan baru dimulai dari "Up to 30". Nilai poin diambil dari kolom `
 
 ## 3. Open Questions untuk stage berikutnya
 - Konfirmasi batas atas tiap bracket partisipan baru (apakah "Up to 30 / 31–59 / 60–Max" sudah tepat, atau perlu lebih banyak tingkat).
-- Konfirmasi apakah kategori **Alphawolf** diberikan ke tepat satu pemain per event atau bisa lebih.
+- Konfirmasi apakah kategori **Monarch** diberikan ke tepat satu pemain per event atau bisa lebih.
 - Konfirmasi definisi "topcut" (jumlah pemain yang lolos) karena memengaruhi bonus Progress to topcut.
 - Cara akumulasi poin lintas event ke leaderboard (jumlah total vs. N event terbaik) — diputuskan di domain-design.

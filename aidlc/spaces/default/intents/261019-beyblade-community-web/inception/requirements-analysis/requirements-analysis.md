@@ -34,7 +34,7 @@ Trace: [REQ2][Q7]
 **FR3.1** Siapa pun dapat melihat leaderboard member berdasar akumulasi poin.
 - Given ada data poin, When leaderboard dimuat, Then member terurut dari poin tertinggi ke terendah.
 **FR3.2** Poin dihitung sesuai aturan di `leaderboard-point-distribution.md` (remap bracket mulai "Up to 30", nilai bagian 60–90).
-- Given hasil event dengan jumlah peserta & peringkat tertentu, When poin dihitung, Then nilai poin tiap kategori (Podium 1–8, Attendance, Progress to topcut, Alphawolf) sama dengan tabel implementasi; Progress to topcut = 0 jika pemain finis Podium 1–4.
+- Given hasil event dengan jumlah peserta & peringkat tertentu, When poin dihitung, Then nilai poin tiap kategori (Podium 1–8, Attendance, Progress to topcut, Monarch) sama dengan tabel implementasi; Progress to topcut = 0 jika pemain finis Podium 1–4.
 Trace: [REQ3], leaderboard-point-distribution.md
 
 ## F4 — Membership
@@ -76,7 +76,7 @@ Trace: [REQ8]
 ## F9 — Halaman Pengelolaan (Admin)
 
 **FR9.1** Admin dapat mengelola home page, event, input poin leaderboard dari hasil event, dan pendaftaran member baru.
-- Given admin login, When admin input hasil event (peserta, peringkat, flag topcut/alphawolf), Then sistem menghitung poin per pemain sesuai aturan dan menuliskannya ke leaderboard.
+- Given admin login, When admin input hasil event (peserta, peringkat, flag topcut/monarch), Then sistem menghitung poin per pemain sesuai aturan dan menuliskannya ke leaderboard.
 **FR9.2** Operasi input poin bersifat idempoten.
 - Given hasil event yang sama di-submit dua kali, When diproses, Then poin tidak terhitung ganda.
 Trace: [REQ9][Q10], MANDATED idempotensi
@@ -109,6 +109,6 @@ Pembayaran online, aplikasi mobile native, notifikasi email/WA otomatis, chat/fo
 ## Open Questions (dibawa ke domain-design)
 - [open] Batas atas pasti tiap bracket partisipan leaderboard ("Up to 30 / 31–59 / 60–Max" — konfirmasi final).
 - [open] Definisi "topcut" (jumlah pemain lolos) untuk bonus Progress to topcut.
-- [open] Jumlah penerima Alphawolf per event (tepat satu atau lebih).
+- [open] Jumlah penerima Monarch per event (tepat satu atau lebih).
 - [open] Aturan akumulasi poin lintas event (total vs. N event terbaik).
 - [open] Alur approval signup member baru (otomatis vs. perlu persetujuan admin).

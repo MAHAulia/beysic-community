@@ -63,5 +63,5 @@ Seluruh 10 fitur inti REQUIREMENT.MD termasuk [Q8]:
 **Scope rilis pertama DIKUNCI** pada 10 fitur inti di atas dengan 4 item ditunda. Lanjut ke stage **approval-handoff** untuk persetujuan sebelum masuk fase Inception.
 
 ## Assumptions & Open Questions
-- [open] Batas atas pasti tiap bracket partisipan leaderboard, definisi topcut, jumlah penerima Alphawolf — dirinci di requirements-analysis/domain-design.
+- [open] Batas atas pasti tiap bracket partisipan leaderboard, definisi topcut, jumlah penerima Monarch — dirinci di requirements-analysis/domain-design.
 - [assumption] Penyimpanan foto via URL Drive; repo publik; volume data wajar (diwarisi dari feasibility).
