@@ -36,8 +36,8 @@
 
 ## Execution Plan Summary
 - **Total Stages**: 17
-- **Completed**: 13
-- **In Progress**: infrastructure-design
+- **Completed**: 15
+- **In Progress**: build-and-test
 
 ## Runtime State
 - **Revision Count**: 0
@@ -84,9 +84,9 @@ Per unit: [TBD]
 - [x] functional-design — EXECUTE
 - [x] nfr-requirements — EXECUTE
 - [ ] nfr-design — SKIP
-- [-] infrastructure-design — EXECUTE
-- [ ] code-generation — EXECUTE
-- [ ] build-and-test — EXECUTE
+- [x] infrastructure-design — EXECUTE
+- [x] code-generation — EXECUTE
+- [-] build-and-test — EXECUTE
 - [ ] ci-pipeline — EXECUTE
 
 ### OPERATION PHASE
@@ -100,12 +100,13 @@ Per unit: [TBD]
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: infrastructure-design
-- **Next Stage**: code-generation
+- **Current Stage**: build-and-test
+- **Next Stage**: ci-pipeline
 - **Status**: Running
-- **Last Updated**: 2026-10-19T04:25:00Z
+- **Last Updated**: 2026-10-19T05:00:00Z
+- **Decision**: GitHub Pages via `main` + `/docs` (user approved recommendation)
 
 ## Session Resume Point
-- **Last Completed Stage**: nfr-requirements
-- **Next Action**: Draft infrastructure-design (GitHub Pages + Apps Script + OAuth + sheet layout), then code-generation
-- **Pending Artifacts**: infrastructure-design.md (awaiting review)
+- **Last Completed Stage**: code-generation (17 app files; all JS syntax-valid)
+- **Next Action**: build-and-test (e2e strategy: points algorithm, idempotency, admin auth), then ci-pipeline
+- **Pending Artifacts**: test setup + results

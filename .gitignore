@@ -25,3 +25,10 @@ aidlc/spaces/*/intents/*/.aidlc-*
 aidlc/diagnostics/
 .kiro/steering/aidlc-active-memory.md
 # END AI-DLC:gitignore
+
+# App (front-end / Apps Script) local files
+.DS_Store
+node_modules/
+*.log
+docs/config.local.js
+.clasp.json

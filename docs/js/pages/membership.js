@@ -1,0 +1,58 @@
+/** Halaman Membership — FR4.1 (info) & FR4.2 (signup, D5 perlu approval admin). */
+window.Pages = window.Pages || {};
+window.Pages.membership = function () {
+  UI.loading();
+  return Api.get('membership.info').then(function (info) {
+    var benefits = (info.benefits && info.benefits.length)
+      ? info.benefits
+      : ['Tercatat di leaderboard', 'Punya profil & achievement', 'Ikut event resmi komunitas'];
+
+    UI.render(
+      '<h1>Membership</h1>' +
+      '<section class="card"><h2>Kenapa Jadi Member?</h2><ul>' +
+        benefits.map(function (b) { return '<li>' + UI.esc(b) + '</li>'; }).join('') +
+      '</ul></section>' +
+      '<section class="card"><h2>Cara Daftar</h2>' +
+        '<p>' + UI.esc(info.howto || 'Login dengan Google lalu isi formulir di bawah. Pendaftaran akan ditinjau admin.') + '</p>' +
+        '<div id="signupArea"></div>' +
+      '</section>'
+    );
+    renderSignup();
+  });
+
+  function renderSignup() {
+    var area = document.getElementById('signupArea');
+    if (!Auth.isLoggedIn()) {
+      area.innerHTML = '<div class="msg msg-error">Silakan login dengan Google (tombol di kanan atas) untuk mendaftar sebagai member.</div>';
+      return;
+    }
+    var user = Auth.getUser();
+    if (user.member) {
+      area.innerHTML = '<div class="msg msg-ok">Anda sudah terdaftar sebagai member (status: ' + UI.esc(user.member.status) + ').</div>';
+      return;
+    }
+    area.innerHTML =
+      '<form id="signupForm">' +
+      f('Nama Tampil', 'displayName', user.name || '') +
+      f('Foto (URL Drive)', 'photoUrl', '') +
+      f('Latest Deck', 'latestDeck', '') +
+      f('Top Blade', 'topBlade', '') +
+      '<button class="btn" type="submit">Kirim Pendaftaran</button>' +
+      '</form>';
+
+    document.getElementById('signupForm').addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var data = UI.formData(ev.target);
+      Api.post('membership.signup', data).then(function (res) {
+        Cache.clear();
+        area.innerHTML = '<div class="msg msg-ok">Pendaftaran terkirim (status: ' + UI.esc(res.status) +
+          '). Menunggu persetujuan admin.</div>';
+      }).catch(function (err) { UI.toast('Gagal: ' + err.message, 'error'); });
+    });
+  }
+
+  function f(label, name, value) {
+    return '<div class="form-field"><label>' + UI.esc(label) + '</label>' +
+      '<input name="' + name + '" value="' + UI.esc(value || '') + '"' + (name === 'displayName' ? ' required' : '') + ' /></div>';
+  }
+};
