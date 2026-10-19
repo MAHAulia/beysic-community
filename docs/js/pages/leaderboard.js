@@ -4,11 +4,12 @@ window.Pages.leaderboard = function () {
   UI.loading();
   return Api.get('leaderboard.get').then(function (rows) {
     var header =
-      '<div class="section-head"><div>' +
-      '<span class="section-eyebrow">League Season</span>' +
-      '<h1 style="margin:0;">Leaderboard</h1></div>' +
-      '<span class="season-pill">Season Aktif</span></div>' +
-      '<p class="lead" style="margin:0 0 1rem;color:var(--muted);">Peringkat Blader berdasarkan akumulasi poin musim ini.</p>';
+      '<section class="page-hero">' +
+        '<span class="eyebrow">League Season</span>' +
+        '<h1><i class="fa-solid fa-trophy"></i> Leaderboard</h1>' +
+        '<p class="lead">Peringkat Blader berdasarkan akumulasi poin musim ini.</p>' +
+        '<div class="pill-row"><span class="season-pill">Season Aktif</span></div>' +
+      '</section>';
 
     if (!rows.length) {
       UI.render(header + '<p class="loading">Belum ada data poin.</p>');

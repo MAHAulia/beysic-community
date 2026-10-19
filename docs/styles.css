@@ -144,6 +144,26 @@ a:hover { text-decoration: underline; }
 .hero p.lead { color: var(--muted); max-width: 640px; margin: 0 auto 1.3rem; }
 .hero .cta-row { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
 
+/* Page hero — banner ringkas untuk halaman dalam (gaya template) */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(180deg, rgba(11,14,26,0.6), rgba(11,14,26,0.9)),
+    url("assets/img/hero-bg.webp");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.page-hero .eyebrow { display: inline-block; color: var(--accent-2); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 0.5rem; }
+.page-hero h1 { margin: 0; font-size: 1.9rem; line-height: 1.1; display: flex; align-items: center; gap: 0.6rem; }
+.page-hero h1 .fa-solid, .page-hero h1 .fa-brands { color: var(--accent-2); font-size: 1.4rem; }
+.page-hero p.lead { color: var(--muted); margin: 0.5rem 0 0; max-width: 640px; }
+.page-hero .pill-row { margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 h2 { font-size: 1.35rem; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin: 0 0 0.75rem; }
 .section-head h2 { margin: 0; }
@@ -201,6 +221,11 @@ textarea { min-height: 90px; resize: vertical; }
 /* Card hover (interaktif) */
 .grid-cards .card { transition: transform 0.15s ease, border-color 0.15s ease; border: 1px solid rgba(255,255,255,0.05); }
 .grid-cards .card:hover { transform: translateY(-3px); border-color: rgba(59,108,255,0.5); }
+.event-card p .fa-solid { color: var(--accent-2); }
+.badge-ongoing { background: rgba(76,211,138,0.2); color: var(--ok); }
+.badge-upcoming { background: rgba(59,108,255,0.2); color: #9bb4ff; }
+.badge-finished { background: var(--surface-2); color: var(--muted); }
+.admin-sidebar button .fa-solid { width: 1.1rem; text-align: center; margin-right: 0.35rem; color: var(--accent-2); }
 
 /* Feature strip (home) */
 .feature-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }

@@ -19,8 +19,10 @@ window.Pages.profile = function () {
       : '<p class="loading">Belum ada achievement.</p>';
 
     UI.render(
-      '<div class="section-head"><div><span class="section-eyebrow">Blader Profile</span>' +
-      '<h1 style="margin:0;">Profil Saya</h1></div></div>' +
+      '<section class="page-hero">' +
+        '<span class="eyebrow">Blader Profile</span>' +
+        '<h1><i class="fa-solid fa-user-ninja"></i> Profil Saya</h1>' +
+      '</section>' +
       '<section class="card">' +
         '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">' +
           (p.photo_url ? '<img src="' + UI.esc(p.photo_url) + '" alt="Foto profil" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid var(--accent-2);" />' : '<div style="width:84px;height:84px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-size:2rem;">🐺</div>') +

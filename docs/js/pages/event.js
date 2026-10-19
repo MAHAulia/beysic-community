@@ -7,9 +7,11 @@ window.Pages.event = function () {
     var upcoming = events.filter(function (e) { return e.status === 'upcoming'; });
 
     UI.render(
-      '<div class="section-head"><div><span class="section-eyebrow">Event Schedule</span>' +
-      '<h1 style="margin:0;">Event</h1></div></div>' +
-      '<p class="lead" style="margin:0 0 1rem;color:var(--muted);">Let\'s go shoot together — ikuti turnamen & casual match komunitas.</p>' +
+      '<section class="page-hero">' +
+        '<span class="eyebrow">Event Schedule</span>' +
+        '<h1><i class="fa-solid fa-calendar-days"></i> Event</h1>' +
+        '<p class="lead">Let\'s go shoot together — ikuti turnamen & casual match komunitas.</p>' +
+      '</section>' +
       section('Sedang Berlangsung', ongoing) +
       section('Akan Datang', upcoming) +
       '<div id="eventFormArea"></div>'
@@ -26,12 +28,13 @@ window.Pages.event = function () {
 
   function card(e) {
     var canRegister = e.registration_open === true || e.registration_open === 'true' || e.registration_open === 'TRUE';
-    return '<div class="card">' +
+    return '<div class="card event-card">' +
       '<h3>' + UI.esc(e.name) + '</h3>' +
-      '<p>' + UI.esc(fmtDate(e.date)) + ' · ' + UI.esc(e.location || '-') + '</p>' +
-      '<p><span class="badge">' + UI.esc(e.status) + '</span></p>' +
+      '<p><i class="fa-solid fa-calendar-day"></i> ' + UI.esc(fmtDate(e.date)) +
+      ' &nbsp; <i class="fa-solid fa-location-dot"></i> ' + UI.esc(e.location || '-') + '</p>' +
+      '<p><span class="badge badge-' + UI.esc(e.status) + '">' + UI.esc(e.status) + '</span></p>' +
       (canRegister
-        ? '<button class="btn" data-register="' + UI.esc(e.event_id) + '" data-name="' + UI.esc(e.name) + '">Daftar</button>'
+        ? '<button class="btn" data-register="' + UI.esc(e.event_id) + '" data-name="' + UI.esc(e.name) + '"><i class="fa-solid fa-pen-to-square"></i> Daftar</button>'
         : '<span class="badge">Pendaftaran ditutup</span>') +
       '</div>';
   }

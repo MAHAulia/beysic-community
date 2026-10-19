@@ -6,13 +6,17 @@ window.Pages.admin = function () {
     return Promise.resolve();
   }
   UI.render(
-    '<h1>Admin Panel</h1>' +
+    '<section class="page-hero">' +
+      '<span class="eyebrow">Admin</span>' +
+      '<h1><i class="fa-solid fa-gauge-high"></i> Admin Panel</h1>' +
+      '<p class="lead">Kelola konten, event, poin leaderboard, dan member.</p>' +
+    '</section>' +
     '<div class="admin-layout">' +
       '<aside class="admin-sidebar">' +
-        '<button data-tab="results" class="active">Input Poin</button>' +
-        '<button data-tab="events">Kelola Event</button>' +
-        '<button data-tab="home">Kelola Home</button>' +
-        '<button data-tab="members">Member</button>' +
+        '<button data-tab="results" class="active"><i class="fa-solid fa-list-ol"></i> Input Poin</button>' +
+        '<button data-tab="events"><i class="fa-solid fa-calendar-plus"></i> Kelola Event</button>' +
+        '<button data-tab="home"><i class="fa-solid fa-house"></i> Kelola Home</button>' +
+        '<button data-tab="members"><i class="fa-solid fa-users"></i> Member</button>' +
       '</aside>' +
       '<div id="adminContent"></div>' +
     '</div>'

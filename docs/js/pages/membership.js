@@ -8,6 +8,11 @@ window.Pages.membership = function () {
       : ['Tercatat di leaderboard', 'Punya profil & achievement', 'Ikut event resmi komunitas'];
 
     UI.render(
+      '<section class="page-hero">' +
+        '<span class="eyebrow">Membership</span>' +
+        '<h1><i class="fa-solid fa-id-card"></i> Jadi Member BeySic</h1>' +
+        '<p class="lead">Daftar, tercatat di leaderboard, dan nikmati benefit komunitas.</p>' +
+      '</section>' +
       '<section class="cta-banner">' +
         '<h2>Join Our Membership!</h2>' +
         '<p>Jadilah bagian dari komunitas Blader — otomatis masuk Leaderboard & punya profil resmi.</p>' +
