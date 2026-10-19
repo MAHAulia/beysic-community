@@ -25,8 +25,11 @@ docs/                 Front-end statis (root GitHub Pages)
   js/                 cache, api, auth (GIS), ui, router, app
   js/pages/           home, event, leaderboard, membership, profile, admin
 apps-script/          Backend Apps Script
-  Code.gs             API, verifikasi token, CRUD sheet, algoritma poin, idempotensi
+  Code.gs             API, verifikasi token, CRUD sheet, idempotensi
+  points.js           Logika poin murni (dipakai Code.gs & unit test)
   appsscript.json     Konfigurasi Web App
+test/                 Unit test (Node built-in test runner)
+  points.test.js      Verifikasi algoritma poin vs tabel referensi
 aidlc/                Artefak AI-DLC (requirements, desain, dll)
 ```
 
@@ -46,7 +49,7 @@ Mengacu `aidlc/.../construction/infrastructure-design/infrastructure-design.md �
 
 ### 2. Apps Script
 1. Buat proyek Apps Script terikat ke spreadsheet (Extensions → Apps Script), atau proyek standalone.
-2. Salin isi `apps-script/Code.gs` dan `apps-script/appsscript.json`.
+2. Salin isi `apps-script/Code.gs`, **`apps-script/points.js`** (buat file baru di proyek, mis. `points.gs`), dan `apps-script/appsscript.json`. Kedua file skrip berbagi global scope; `points.js` wajib ada agar perhitungan poin bekerja.
 3. Project Settings → Script Properties, tambahkan:
    - `SPREADSHEET_ID` = id spreadsheet
    - `GOOGLE_CLIENT_ID` = OAuth Web client id (lihat langkah 3)
@@ -87,6 +90,20 @@ Catatan: login Google butuh origin yang terdaftar di OAuth client; untuk uji lok
 - Semua otorisasi admin & kepemilikan data divalidasi server-side di Apps Script.
 - Tidak ada secret di repo; `GOOGLE_CLIENT_ID` dan URL Web App memang client-side.
 - Operasi tulis poin & achievement idempoten (anti double-count), dibungkus LockService.
+
+## Testing
+
+### Unit test (otomatis, tanpa Google)
+Algoritma poin leaderboard diuji dengan Node built-in test runner:
+
+```
+npm test
+```
+
+Memverifikasi `computePoints`/`bracketOf` cocok persis dengan tabel distribusi referensi (FR3.2): bracket, aturan bintang Progress-to-topcut (dibatalkan untuk rank 1–4), Monarch, dan pembulatan.
+
+### E2E manual (perlu deployment Google)
+Alur yang bergantung Google (login, tulis Sheets) diuji manual setelah deploy. Checklist di `aidlc/.../construction/build-and-test/e2e-manual-checklist.md`.
 
 ## Catatan Poin Leaderboard
 

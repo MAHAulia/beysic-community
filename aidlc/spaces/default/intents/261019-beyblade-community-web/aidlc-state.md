@@ -36,8 +36,8 @@
 
 ## Execution Plan Summary
 - **Total Stages**: 17
-- **Completed**: 15
-- **In Progress**: build-and-test
+- **Completed**: 17
+- **In Progress**: (none — plan complete)
 
 ## Runtime State
 - **Revision Count**: 0
@@ -48,7 +48,7 @@
 - **Initialization**: Verified
 - **Ideation**: Verified
 - **Inception**: Verified
-- **Construction**: Active
+- **Construction**: Verified
 - **Operation**: Skipped
 
 ## Stage Progress
@@ -86,8 +86,8 @@ Per unit: [TBD]
 - [ ] nfr-design — SKIP
 - [x] infrastructure-design — EXECUTE
 - [x] code-generation — EXECUTE
-- [-] build-and-test — EXECUTE
-- [ ] ci-pipeline — EXECUTE
+- [x] build-and-test — EXECUTE
+- [x] ci-pipeline — EXECUTE
 
 ### OPERATION PHASE
 - [ ] deployment-pipeline — SKIP
@@ -99,14 +99,14 @@ Per unit: [TBD]
 - [ ] feedback-optimization — SKIP
 
 ## Current Status
-- **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: build-and-test
-- **Next Stage**: ci-pipeline
-- **Status**: Running
-- **Last Updated**: 2026-10-19T05:00:00Z
+- **Lifecycle Phase**: CONSTRUCTION (complete)
+- **Current Stage**: — (all configured stages complete)
+- **Next Stage**: —
+- **Status**: Plan Complete
+- **Last Updated**: 2026-10-19T05:35:00Z
 - **Decision**: GitHub Pages via `main` + `/docs` (user approved recommendation)
 
 ## Session Resume Point
-- **Last Completed Stage**: code-generation (17 app files; all JS syntax-valid)
-- **Next Action**: build-and-test (e2e strategy: points algorithm, idempotency, admin auth), then ci-pipeline
-- **Pending Artifacts**: test setup + results
+- **Last Completed Stage**: ci-pipeline (GitHub Actions workflow; CI steps verified locally)
+- **Next Action**: Deploy per README (manual, needs Google credentials); run e2e-manual-checklist.md
+- **Pending Artifacts**: none

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Lint & Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Syntax check (front-end JS)
+        run: |
+          set -e
+          for f in docs/config.js docs/js/*.js docs/js/pages/*.js; do
+            echo "checking $f"
+            node --check "$f"
+          done
+
+      - name: Syntax check (Apps Script)
+        run: |
+          set -e
+          for f in apps-script/Code.gs apps-script/points.js; do
+            echo "checking $f"
+            cp "$f" "/tmp/$(basename "$f").js"
+            node --check "/tmp/$(basename "$f").js"
+          done
+
+      - name: Unit tests (points algorithm)
+        run: npm test
