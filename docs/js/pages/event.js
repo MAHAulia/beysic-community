@@ -9,7 +9,7 @@ window.Pages.event = function () {
     UI.render(
       '<section class="page-hero">' +
         '<span class="eyebrow">Event Schedule</span>' +
-        '<h1><i class="fa-solid fa-calendar-days"></i> Event</h1>' +
+        '<h1><i class="fa-solid fa-calendar-days"></i> <span class="gradient">Event</span></h1>' +
         '<p class="lead">Let\'s go shoot together — ikuti turnamen & casual match komunitas.</p>' +
       '</section>' +
       section('Sedang Berlangsung', ongoing) +

@@ -1,0 +1,5 @@
+/* ===== Profile — achievement row (gaya diwarisi dari components.achievement) ===== */
+
+/* Profil memakai .card, .achievement, .badge dari components.css.
+   Blok ini tersedia untuk penyesuaian khusus halaman profil bila diperlukan. */
+.achievement .badge { margin-left: auto; }

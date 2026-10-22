@@ -1,0 +1,47 @@
+/* ===== Layout — .app-main, .section, .section-head, grid & galeri ===== */
+
+.app-main {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 1.5rem auto 4rem;
+}
+
+.section { padding: 1.5rem 0; }
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1rem;
+  flex-wrap: wrap;
+}
+.section-head h2 { margin: 0; }
+.section-head .section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--cyan);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.section-head .section-eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+.section-head a { font-size: .85rem; color: var(--cyan); font-weight: 700; }
+
+/* Grid helper */
+.grid { display: grid; gap: 18px; }
+.grid-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.photo-grid img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  border: 1px solid var(--line);
+}

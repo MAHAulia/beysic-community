@@ -21,11 +21,11 @@ window.Pages.profile = function () {
     UI.render(
       '<section class="page-hero">' +
         '<span class="eyebrow">Blader Profile</span>' +
-        '<h1><i class="fa-solid fa-user-ninja"></i> Profil Saya</h1>' +
+        '<h1><i class="fa-solid fa-user-ninja"></i> <span class="gradient">Profil Saya</span></h1>' +
       '</section>' +
       '<section class="card">' +
         '<div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">' +
-          (p.photo_url ? '<img src="' + UI.esc(p.photo_url) + '" alt="Foto profil" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid var(--accent-2);" />' : '<div style="width:84px;height:84px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-size:2rem;">🐺</div>') +
+          (p.photo_url ? '<img src="' + UI.esc(p.photo_url) + '" alt="Foto profil" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan);" />' : '<div style="width:84px;height:84px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:grid;place-items:center;font-size:2rem;color:var(--cyan);"><i class="fa-solid fa-user" aria-hidden="true"></i></div>') +
           '<div><h2 style="margin:0;">' + UI.esc(m.display_name || '') + '</h2>' +
           '<span class="badge">status: ' + UI.esc(m.status || '-') + '</span></div>' +
         '</div>' +

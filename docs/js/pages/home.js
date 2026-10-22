@@ -30,7 +30,7 @@ window.Pages.home = function () {
   function hero() {
     return '<section class="hero">' +
       '<span class="eyebrow">Beysic Blader Community</span>' +
-      '<h1>Where Every Blader is a Champion!</h1>' +
+      '<h1 class="gradient">Where Every Blader is a Champion!</h1>' +
       '<p class="tagline">Let\'s go shoot together — Nonstop Battle!</p>' +
       '<p class="lead">Pusat informasi komunitas, jadwal event, dan leaderboard pemain. ' +
       'Gabung, bertanding, dan ukir prestasimu.</p>' +

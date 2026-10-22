@@ -6,7 +6,7 @@ window.Pages.leaderboard = function () {
     var header =
       '<section class="page-hero">' +
         '<span class="eyebrow">League Season</span>' +
-        '<h1><i class="fa-solid fa-trophy"></i> Leaderboard</h1>' +
+        '<h1><i class="fa-solid fa-trophy"></i> <span class="gradient">Leaderboard</span></h1>' +
         '<p class="lead">Peringkat Blader berdasarkan akumulasi poin musim ini.</p>' +
         '<div class="pill-row"><span class="season-pill">Season Aktif</span></div>' +
       '</section>';

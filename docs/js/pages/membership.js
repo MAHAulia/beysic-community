@@ -10,7 +10,7 @@ window.Pages.membership = function () {
     UI.render(
       '<section class="page-hero">' +
         '<span class="eyebrow">Membership</span>' +
-        '<h1><i class="fa-solid fa-id-card"></i> Jadi Member BeySic</h1>' +
+        '<h1><i class="fa-solid fa-id-card"></i> <span class="gradient">Jadi Member BeySic</span></h1>' +
         '<p class="lead">Daftar, tercatat di leaderboard, dan nikmati benefit komunitas.</p>' +
       '</section>' +
       '<section class="cta-banner">' +

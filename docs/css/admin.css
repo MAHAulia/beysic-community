@@ -1,0 +1,38 @@
+/* ===== Admin — layout sidebar + konten ===== */
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 1rem;
+}
+.admin-sidebar {
+  background: linear-gradient(145deg, rgba(17,28,43,.92), rgba(10,16,26,.92));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: .75rem;
+  height: fit-content;
+}
+.admin-sidebar button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: .6rem .65rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: .15s;
+}
+.admin-sidebar button.active,
+.admin-sidebar button:hover {
+  background: rgba(22,118,232,.14);
+  color: var(--cyan);
+}
+.admin-sidebar button .fa-solid {
+  width: 1.1rem;
+  text-align: center;
+  margin-right: .4rem;
+  color: var(--cyan);
+}

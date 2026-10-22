@@ -1,0 +1,106 @@
+/* ===== Base — token warna, reset, tipografi Inter, utilitas (.container/.eyebrow/.gradient) =====
+   Token diselaraskan ke template/css/base.css (palet cyan Beysic). */
+:root {
+  /* Token template (sumber kebenaran) */
+  --bg: #070b12;
+  --panel: #0d1420;
+  --panel2: #111c2b;
+  --blue: #1676e8;
+  --cyan: #42f3ff;
+  --white: #f4f8ff;
+  --muted: #9caec4;
+  --line: rgba(126,178,224,.18);
+  --radius: 18px;
+  --max: 1180px;
+
+  /* Alias kompatibilitas untuk kelas lama yang dimigrasikan.
+     --accent (biru) & --accent-2 (dulu kuning #ffcc33) -> cyan. */
+  --accent: var(--blue);
+  --accent-2: var(--cyan);
+  --surface: var(--panel);
+  --surface-2: var(--panel2);
+  --text: var(--white);
+  --maxw: var(--max);
+
+  /* Warna status semantik, direkonsiliasi ke palet. */
+  --danger: #ff6b6b;
+  --ok: #4cd38a;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Latar: radial-gradient biru+cyan + grid halus (template body:before). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 75% 0%, rgba(22,118,232,.17), transparent 38%),
+    radial-gradient(ellipse at 0% 60%, rgba(66,243,255,.07), transparent 34%),
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: auto, auto, 42px 42px, 42px 42px;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--cyan); }
+
+button, input, textarea, select { font: inherit; }
+
+.hidden { display: none !important; }
+
+/* ===== Tipografi ===== */
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.12; letter-spacing: -.02em; font-weight: 800; }
+h1 { font-size: clamp(2rem, 4.2vw, 2.9rem); margin: 0 0 .6rem; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0 0 .75rem; }
+h3 { font-size: 1.15rem; }
+p { color: var(--muted); }
+
+/* ===== Utilitas template ===== */
+.container {
+  width: min(var(--max), calc(100% - 40px));
+  margin: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--cyan);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+.gradient {
+  background: linear-gradient(100deg, #fff 8%, #8defff 48%, #368eff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

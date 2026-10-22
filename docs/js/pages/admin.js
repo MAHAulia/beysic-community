@@ -8,7 +8,7 @@ window.Pages.admin = function () {
   UI.render(
     '<section class="page-hero">' +
       '<span class="eyebrow">Admin</span>' +
-      '<h1><i class="fa-solid fa-gauge-high"></i> Admin Panel</h1>' +
+      '<h1><i class="fa-solid fa-gauge-high"></i> <span class="gradient">Admin Panel</span></h1>' +
       '<p class="lead">Kelola konten, event, poin leaderboard, dan member.</p>' +
     '</section>' +
     '<div class="admin-layout">' +

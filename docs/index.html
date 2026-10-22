@@ -5,27 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beysic — Komunitas Beyblade</title>
   <meta name="description" content="Pusat informasi komunitas, pendaftaran event, dan leaderboard pemain Beyblade." />
-  <!-- Fonts & icon set (gaya template Axio) -->
+  <!-- Fonts & icon set (gaya template Axio -> palet cyan, font Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Stylesheet modular (responsive.css HARUS terakhir) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/buttons.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/events.css" />
+  <link rel="stylesheet" href="css/leaderboard.css" />
+  <link rel="stylesheet" href="css/membership.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
   <!-- Google Identity Services -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
-  <!-- Loader (gaya template) -->
+  <!-- Loader (gaya template, logo cyan) -->
   <div class="loader" id="loader">
     <div class="loader__content">
-      <div class="loader__logo"><span class="loader__spin">🌀</span></div>
+      <div class="loader__logo"><img class="loader__logo-img loader__spin" src="assets/img/logo.jpg" alt="Beysic" /></div>
       <p class="loader__text">BEYSIC<span class="dots"><span></span><span></span><span></span></span></p>
     </div>
   </div>
   <header class="site-header">
     <div class="brand">
-      <span class="brand-logo" aria-hidden="true">🐺</span>
+      <img class="brand-logo" src="assets/img/logo.jpg" alt="Logo Beysic" />
       <a href="#/" class="brand-name">Beysic<span class="brand-sub">Blader Community</span></a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">≡</button>
