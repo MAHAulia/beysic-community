@@ -248,3 +248,61 @@
 **Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
 
 ---
+
+## Human Turn
+**Timestamp**: 2026-10-20T04:06:26Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-20T04:07:13Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-21T02:04:53Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-22T06:59:49Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-22T07:01:33Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-22T07:02:44Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Human Turn
+**Timestamp**: 2026-10-22T12:05:05Z
+**Event**: HUMAN_TURN
+**Session**: sess_77d6b9c7-cf21-4901-a1cd-21f3d5503115
+
+---
+
+## Error Logged
+**Timestamp**: 2026-10-22T12:06:13Z
+**Event**: ERROR_LOGGED
+**Tool**: aidlc-utility
+**Command**: aidlc-utility intent-create
+**Error**: intent-create refused: no --scope, --arguments, or --label given. Creation is a mutation and a bare invocation mints a garbage default-scope intent. Start work via `/aidlc "<what to build>"` (the engine names the create move for you); to invoke this tool directly, pass at least `--scope <name>` (and ideally `--arguments "<description>" --label "<2-3 word essence>"`).
+
+---
