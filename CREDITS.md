@@ -13,7 +13,7 @@ sesuai ketentuan lisensinya.
 
 ### Aset yang dipakai dari template
 Disalin ke `docs/assets/` dan dipakai untuk kebutuhan tampilan sementara:
-- `docs/assets/img/hero-bg.webp` (dari `img/demo/1920x1080-bg-demo.webp`)
+- `docs/assets/img/hero-bg.jpg` (dari `img/demo/1920x1080-bg-demo.webp`)
 - `docs/assets/img/section-bg.webp` (dari `img/demo/bg-demo-subscribe.webp`)
 - `docs/assets/img/features/icon-1.svg` … `icon-6.svg` (dari `img/features/axio-icon-*.svg`)
 - `docs/assets/img/logo-loader.svg` (dari `img/logo-loader.svg`)

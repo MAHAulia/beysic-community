@@ -5,7 +5,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(7,11,18,.55), rgba(7,11,18,.9)),
-    url("../assets/img/hero-bg.webp");
+    url("../assets/img/hero-bg.jpgs");
   background-size: cover;
   background-position: center;
   border: 1px solid var(--line);
@@ -43,7 +43,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(7,11,18,.6), rgba(7,11,18,.92)),
-    url("../assets/img/hero-bg.webp");
+    url("../assets/img/hero-bg.jpg");
   background-size: cover;
   background-position: center;
   border: 1px solid var(--line);
